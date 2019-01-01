@@ -1,0 +1,34 @@
+:global(body) {
+  margin: 0px;
+  //margin-top: -16px;
+  font-family: Roboto, menlo;
+}
+:global(.row) {
+  display: flex;
+  flex-direction: row;
+}
+:global(.ver-center) {
+  align-items: center;
+}
+
+:global(.col) {
+  display: flex;
+  flex-direction: column;
+}
+
+:global(.center) {
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@for $i from 1 through 10 {
+  .box:nth-of-type(#{$i}) {
+    background-color: darken(cornflowerblue, 0% + $i);
+  }
+  :global(.f#{$i}) {
+    display: flex;
+    flex: $i;
+  }
+}
