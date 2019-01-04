@@ -4,13 +4,16 @@ import Head from '../components/head'
 import Nav from '../components/nav'
 import indexStyles from './index.scss'
 
-const DESCRIPTION = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+const DESCRIPTION = 'Lấy cảm hứng từ những người phải ẩn đi danh tính và thân phận thật hay như những con người bình thường vô danh. ' + 
+' Những chiếc áo khoác Raven biến chúng ta thành `"tín đồ" của một suy nghĩ phá cách, một thứ có thể tạo ra 1 mối liên kết bí ẩn giữa những con người kỳ lạ nhưng khác biệt.' + 
+'We are Satthat!'
 
 const head =
-  <Head title="Home" />
+  <Head title="Satthatcreed" />
 const navBar = <>
   <div className="navigation-bar">
     <img src="/static/logo.png" alt="logo" width={73}/>
+    <h4 className="slogan">Hide identities show characteristics</h4>
     { /*language=SCSS*/ }
     <style jsx>{`
       .hero {
@@ -24,6 +27,11 @@ const navBar = <>
         position: fixed;
         z-index: 100;
       }
+     .slogan {
+      color: white;
+      margin: 0px;
+      font-weight: 1000;
+     }
     `}</style>
   </div>
 </>
@@ -48,7 +56,7 @@ const name = <>
    `}</style>
 </>
 const title = <>
-  <h1 className="symbol">Assassin
+  <h1 className="symbol">RAVEN
 
     { /*language=SCSS*/ }
     <style jsx>{`
