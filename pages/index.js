@@ -1,19 +1,21 @@
 import React from 'react'
+import withGA from "next-ga";
+import Router from "next/router";
 import Link from 'next/link'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import indexStyles from './index.scss'
 
-const DESCRIPTION = 'Lấy cảm hứng từ những người phải ẩn đi danh tính và thân phận thật hay như những con người bình thường vô danh. ' + 
-' Những chiếc áo khoác Raven biến chúng ta thành `"tín đồ" của một suy nghĩ phá cách, một thứ có thể tạo ra 1 mối liên kết bí ẩn giữa những con người kỳ lạ nhưng khác biệt.' + 
+const DESCRIPTION = 'Lấy cảm hứng từ những người phải ẩn đi danh tính và thân phận thật hay như những con người bình thường vô danh. ' +
+' Những chiếc áo khoác Raven biến chúng ta thành `"tín đồ" của một suy nghĩ phá cách, một thứ có thể tạo ra 1 mối liên kết bí ẩn giữa những con người kỳ lạ nhưng khác biệt.' +
 'We are Satthat!'
 
 const head =
   <Head title="Satthatcreed" />
 const navBar = <>
-  <div className="navigation-bar">
-    <img src="/static/logo.png" alt="logo" width={73}/>
-    <h4 className="slogan">Hide identities show characteristics</h4>
+  <div className="navigation-bar row ver-end hor-sb">
+    <img src="/static/logo.png" alt="logo" width={140} height={70}/>
+    <h4 className="slogan"><span className="hide">Hide identities,</span> show characteristics</h4>
     { /*language=SCSS*/ }
     <style jsx>{`
       .hero {
@@ -23,15 +25,36 @@ const navBar = <>
       .navigation-bar {
          width: 100%;
         background-color: rgba(0, 0, 0, 0.6);
-        padding: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left:80px;
+        padding-right: 80px;
         position: fixed;
         z-index: 100;
       }
      .slogan {
       color: white;
-      margin: 0px;
-      font-weight: 1000;
+      font-size: 23px;
+      margin-bottom: 5px;
+      margin-top: 0px;
+      margin-left: 20px;
+      margin-right: 170px;
+      font-weight: 500;
+      font-style: italic;
+      text-shadow: 2px 1px 3px rgba(0,0,0,0.5);
+      color: rgba(255,255,255,0.8);
      }
+     .hide{
+       color: rgba(0,0,0,0.6);
+    text-shadow: 2px 1px 3px rgba(255,255,255,0.2);
+     }
+     .hide::before {
+  content: "\\201C";
+}
+
+.slogan::after {
+  content: "\\201D";
+}
     `}</style>
   </div>
 </>
@@ -210,4 +233,4 @@ const Home = () => (
   </div>
 )
 
-export default Home
+export default withGA("UA-131737658-1", Router)(Home);
