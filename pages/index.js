@@ -15,7 +15,7 @@ const head =
 const navBar = <>
   <div className="navigation-bar row ver-end hor-sb">
     <img src="/static/logo.png" alt="logo" width={140} height={70}/>
-    <h4 className="slogan"><span className="hide">Hide identities,</span> show characteristics</h4>
+    <h4 className="slogan"><span className="hide"> Hide identities </span> show characteristics</h4>
     { /*language=SCSS*/ }
     <style jsx>{`
       .hero {
