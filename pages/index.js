@@ -13,9 +13,11 @@ const DESCRIPTION = 'Lấy cảm hứng từ những người phải ẩn đi da
 const head =
   <Head title="Satthatcreed" />
 const navBar = <>
-  <div className="navigation-bar row ver-end hor-sb">
-    <img src="/static/logo.png" alt="logo" width={140} height={70}/>
-    <h4 className="slogan"><span className="hide"> Hide identities </span> show characteristics</h4>
+  <div className="navigation-bar ">
+    <div className="container d-flex justify-content-between align-items-center">
+      <img src="/static/logo.png" alt="logo" width={140} height={70}/>
+      <h4 className="slogan d-none d-sm-block"><span className="hide"> Hide identities </span> show characteristics</h4>
+    </div>
     { /*language=SCSS*/ }
     <style jsx>{`
       .hero {
@@ -35,10 +37,6 @@ const navBar = <>
      .slogan {
       color: white;
       font-size: 23px;
-      margin-bottom: 5px;
-      margin-top: 0px;
-      margin-left: 20px;
-      margin-right: 170px;
       font-weight: 500;
       font-style: italic;
       text-shadow: 2px 1px 3px rgba(0,0,0,0.5);
@@ -60,7 +58,7 @@ const navBar = <>
 </>
 
 const name = <>
-  <div className="name f1 center">
+  <div className="name d-flex w-100 justify-content-center align-items-center vh-1">
     <p><span>SAT</span><span>THAT</span><span className="red">CREED</span></p>
   </div>
 { /*language=SCSS*/ }
@@ -72,14 +70,19 @@ const name = <>
 {
     display: block;
     font-weight: bold;
-    font-size: 170px;
+    font-size: 14vw;
+    line-height: 14vw;
     color: #C4C4C4;
+}
+.name{
+padding-top: 100px;
+padding-bottom: 100px;
 }
 
    `}</style>
 </>
 const title = <>
-  <h1 className="symbol">RAVEN
+  <h1 className="symbol ">RAVEN
 
     { /*language=SCSS*/ }
     <style jsx>{`
@@ -127,7 +130,7 @@ const description = <>
 </>
 
 const info = order => <>
-  <div className="f1 info center">
+  <div className="d-flex w-100 info justify-content-center align-items-center vh-100">
     <div className="wrapper">
       <div className="row ver-center">
         {title}
@@ -152,7 +155,7 @@ const info = order => <>
   </div>
 </>
 const image = (order) => <>
-<div className="image">
+<div className="image d-none d-md-block">
   <img src={`/static/tshirt${order}.png`} alt="product-image" width="400"/>
   { /*language=SCSS*/ }
   <style jsx>{`
@@ -195,14 +198,14 @@ const body = <>
   <div className="products">
     <div className="product-wrapper">
       {image(1)}
-    <div className="product row">
+    <div className=" d-flex flex-column  flex-md-row">
       {name}
       {info(1)}
     </div>
     </div>
     <div className="product-wrapper">
       {image(2)}
-    <div className="product row">
+    <div className=" d-flex flex-column-reverse  flex-md-row">
       {info(2)}
       {name}
     </div>
@@ -216,14 +219,11 @@ const body = <>
      .product-wrapper{
      position: relative;
      }
-     .product {
-      height: 100vh;
-     }
    `}</style>
   </div>
 </>
 const Home = () => (
-  <div >
+  <div>
     {head}
     {navBar}
     {body}

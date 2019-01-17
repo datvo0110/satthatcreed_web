@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unknown-property */
 import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
 
 const defaultDescription = 'Hide identities, show characteristics'
-const defaultOGURL = ''
-const defaultOGImage = ''
+const defaultOGURL = 'https://satthatcreed.com'
+const defaultOGImage = './static/logo'
 
 const Head = props => (
   <NextHead>
@@ -31,8 +32,12 @@ const Head = props => (
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossOrigin="anonymous"/>
 
-  </NextHead>
+</NextHead>
 )
 
 Head.propTypes = {
