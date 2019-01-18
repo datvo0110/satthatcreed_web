@@ -22,3 +22,9 @@ yarn-error.log*
 now.json
 
 .idea/
+
+.firebase/
+.firebaserc
+firebase.json
+functions/
+pages/index.html
