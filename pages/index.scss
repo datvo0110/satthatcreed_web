@@ -31,7 +31,9 @@
   align-items: center;
 }
 
-
+:global(.vh-100){
+  height: 100vh;
+}
 
 @for $i from 1 through 10 {
   .box:nth-of-type(#{$i}) {
