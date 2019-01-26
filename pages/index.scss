@@ -1,7 +1,14 @@
 :global(body) {
   margin: 0px;
   //margin-top: -16px;
-  font-family: Roboto, menlo;
+  line-height: 1.42857;
+  padding: 0;
+  color: #30383f;
+  font-family: Lato,Helvetica Neue,Helvetica;
+  font-size: 13px;
+  min-width: 300px;
+  min-height: 100%;
+  background: #f1f3f4;
 }
 :global(.row) {
   display: flex;
