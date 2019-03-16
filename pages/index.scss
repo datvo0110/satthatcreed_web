@@ -1,3 +1,7 @@
+//@import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+//@import "cssindex.scss";
+//@import "~slick-carousel/slick/slick.scss";
+//@import "~slick-carousel/slick/slick-theme.scss";
 :global(body) {
   margin: 0px;
   //margin-top: -16px;
@@ -9,6 +13,13 @@
   min-width: 300px;
   min-height: 100%;
   background: #f1f3f4;
+}
+:global(.carousel.carousel-slider){
+  margin: auto!important;
+}:global(.carousel .slide){
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 :global(.row) {
   display: flex;
