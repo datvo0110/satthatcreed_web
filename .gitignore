@@ -19,6 +19,6 @@ yarn-debug.log*
 yarn-error.log*
 
 #now config
-now.json
+# now.json
 
 .idea/
