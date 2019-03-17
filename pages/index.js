@@ -453,24 +453,28 @@ const FBMessageChat =  <MessengerCustomerChat
 function  carousel(){
   const imgSrcs = [];
   let i;
-  for(i = 0; i < 10; i++){
+  for(i = 0; i < 18; i++){
     imgSrcs.push(`/static/carousel-images/${i}.jpg`)
   }
-  return <div className="carousel-wrapper  ">
-    <p className="carousel-title">Một số hình ảnh</p>
-    <Carousel showArrows={false} infiniteLoop  width={300} showThumbs={false}>
+  return <div className="carousel-wrapper ">
+    <div className="container">
+    {/*<p className="carousel-title">Satthat</p>*/}
+    <Carousel autoPlay infiniteLoop statusFormatter={(current, total) => `${current} trên ${total}`}>
       {
         imgSrcs.map((imgSrc)=> <div className=" d-flex justify-content-center  align-items-center"><img src={imgSrc}  /></div>)
       }
     </Carousel>
+    </div>
     { /*language=SCSS*/}
     <style jsx>{`
       .carousel-wrapper{
-        padding-top: 30px;
+        //background-image: url('/static/diagonal-squares.png');
+        padding-top: 70px;
         padding-bottom: 70px;
-        background-color: #f0f0f0;
+         background-color: #97231C;
       }
       .carousel-title{
+      color: #ffffff;
       text-align: center;
       font-size: 24px;
       font-weight: 700;

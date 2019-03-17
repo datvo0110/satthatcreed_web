@@ -16,10 +16,28 @@
 }
 :global(.carousel.carousel-slider){
   margin: auto!important;
-}:global(.carousel .slide){
+}
+:global(.carousel .control-prev.control-arrow){
+  left: -15px!important;
+}
+:global(.carousel .control-next.control-arrow){
+  right: -15px!important;
+}
+:global(.carousel.carousel-slider .control-next.control-arrow ){
+  padding-left: 9px!important;
+  padding-right: 23px!important;
+}
+
+:global(.carousel.carousel-slider .control-prev.control-arrow ){
+  padding-left: 23px!important;
+  padding-right: 9px!important;
+}
+
+:global(.carousel .slide){
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent!important;
 }
 :global(.row) {
   display: flex;
