@@ -2,15 +2,18 @@ import React from 'react'
 import withGA from "next-ga";
 import Router from "next/router";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
-import {Carousel} from 'react-responsive-carousel';
+// import {Carousel} from 'react-responsive-carousel';
 import Link from 'next/link'
-import Slider from "react-slick";
+// import Slider from "react-slick";
+// import Lightbox from 'react-images';
+import Gallery from 'react-grid-gallery';
+
 import Head from '../components/head'
 import Nav from '../components/nav'
 import indexStyles from './index.scss'
 
 // import "../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const DESCRIPTION = 'Lấy cảm hứng từ những người phải ẩn đi danh tính và thân phận thật hay như những con người bình thường vô danh. ' +
   ' Những chiếc áo khoác Raven biến chúng ta thành `"tín đồ" của một suy nghĩ phá cách, một thứ có thể tạo ra 1 mối liên kết bí ẩn giữa những con người kỳ lạ nhưng khác biệt.' +
@@ -408,40 +411,40 @@ const button = <>
 
 </>
 
- function gallary(){
-   const settings = {
-     dots: true,
-     infinite: true,
-     speed: 500,
-     slidesToShow: 1,
-     slidesToScroll: 1
-   };
-  return (
-    <div>
-      <h2> Single Item</h2>
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
-    </div>
-  );
-}
+//  function gallary(){
+//    const settings = {
+//      dots: true,
+//      infinite: true,
+//      speed: 500,
+//      slidesToShow: 1,
+//      slidesToScroll: 1
+//    };
+//   return (
+//     <div>
+//       <h2> Single Item</h2>
+//       <Slider {...settings}>
+//         <div>
+//           <h3>1</h3>
+//         </div>
+//         <div>
+//           <h3>2</h3>
+//         </div>
+//         <div>
+//           <h3>3</h3>
+//         </div>
+//         <div>
+//           <h3>4</h3>
+//         </div>
+//         <div>
+//           <h3>5</h3>
+//         </div>
+//         <div>
+//           <h3>6</h3>
+//         </div>
+//       </Slider>
+//     </div>
+//   );
+// }
 const FBMessageChat =  <MessengerCustomerChat
   pageId="361976391058470"
   appId="151812912254813"
@@ -453,25 +456,35 @@ const FBMessageChat =  <MessengerCustomerChat
 function  carousel(){
   const imgSrcs = [];
   let i;
-  for(i = 0; i < 18; i++){
-    imgSrcs.push(`/static/carousel-images/${i}.jpg`)
+  for(i = 0; i < 11; i++){
+    imgSrcs.push({
+      src: `/static/carousel-images/${i}.jpg`,
+      thumbnail: `/static/carousel-images/${i}.jpg`,
+      thumbnailWidth: i < 7 ? 342 : 767,
+      thumbnailHeight: 512,})
   }
-  return <div className="carousel-wrapper ">
-    <div className="container">
+  return <div className="carousel-wrapper container">
+      <Gallery images={imgSrcs} enableImageSelection={false} margin={5} imageCountSeparator={" trên "}/>
     {/*<p className="carousel-title">Satthat</p>*/}
-    <Carousel autoPlay infiniteLoop statusFormatter={(current, total) => `${current} trên ${total}`}>
-      {
-        imgSrcs.map((imgSrc)=> <div className=" d-flex justify-content-center  align-items-center"><img src={imgSrc}  /></div>)
-      }
-    </Carousel>
-    </div>
+    {/*<Carousel autoPlay infiniteLoop statusFormatter={(current, total) => `${current} trên ${total}`}>*/}
+      {/*{*/}
+        {/*imgSrcs.map((imgSrc)=> <div className=" d-flex justify-content-center  align-items-center"><img src={imgSrc}  /></div>)*/}
+      {/*}*/}
+    {/*</Carousel>*/}
+      {/*<Lightbox*/}
+        {/*images={imgSrcs}*/}
+        {/*// isOpen={this.state.lightboxIsOpen}*/}
+        {/*// onClickPrev={this.gotoPrevLightboxImage}*/}
+        {/*// onClickNext={this.gotoNextLightboxImage}*/}
+        {/*onClose={()=>{}}*/}
+      {/*/>*/}
     { /*language=SCSS*/}
     <style jsx>{`
       .carousel-wrapper{
         //background-image: url('/static/diagonal-squares.png');
-        padding-top: 70px;
-        padding-bottom: 70px;
-         background-color: #97231C;
+        //padding-top: 70px;
+        //padding-bottom: 300px;
+         //background-color: #97231C;
       }
       .carousel-title{
       color: #ffffff;
