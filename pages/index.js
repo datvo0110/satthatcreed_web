@@ -456,7 +456,7 @@ const FBMessageChat =  <MessengerCustomerChat
 function  carousel(){
   const imgSrcs = [];
   let i;
-  for(i = 0; i < 11; i++){
+  for(i = 10; i > -1; i--){
     imgSrcs.push({
       src: `/static/carousel-images/${i}.jpg`,
       thumbnail: `/static/carousel-images/${i}.jpg`,
