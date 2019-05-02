@@ -22,3 +22,7 @@ yarn-error.log*
 # now.json
 
 .idea/
+
+# custom ignore
+add-identity.sh
+package-lock.json
