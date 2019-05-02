@@ -1,10 +1,10 @@
-const withSass = require('@zeit/next-sass');
-const withCSS = require('@zeit/next-css');
-const commonsChunkConfig = require('@shuta/commons-chunk-config');
-
-module.exports = withSass(withCSS({
-  webpack: config => commonsChunkConfig(config, /\.(sass|scss|css)$/)
-}));
+// const withSass = require('@zeit/next-sass');
+// const withCSS = require('@zeit/next-css');
+// const commonsChunkConfig = require('@shuta/commons-chunk-config');
+//
+// module.exports = withSass(withCSS({
+//   webpack: config => commonsChunkConfig(config, /\.(sass|scss|css)$/)
+// }));
 
 // module.exports = {
 //   webpack: (config, {defaultLoaders}) => {
@@ -29,3 +29,32 @@ module.exports = withSass(withCSS({
 //     return config
 //   }
 // }
+
+
+
+// module.exports = withCSS(withSass());
+
+
+
+
+const { PHASE_PRODUCTION_SERVER } =
+  process.env.NODE_ENV === 'development'
+    ? {}
+    : !process.env.NOW_REGION
+    ? require('next/constants')
+    : require('next-server/constants');
+
+module.exports = (phase, { defaultConfig }) => {
+  if (phase === PHASE_PRODUCTION_SERVER) {
+    // Config used to run in production.
+    return {};
+  }
+
+  // ✅ Put the require call here.
+  // const withCSS = require('@zeit/next-css');
+
+  const withSass = require('@zeit/next-sass');
+  const withCSS = require('@zeit/next-css');
+
+  return withCSS(withSass());
+};
