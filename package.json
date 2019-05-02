@@ -10,6 +10,7 @@
     "next-ga": "^2.3.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-facebook-pixel": "^0.1.2",
     "react-grid-gallery": "^0.5.4",
     "react-images": "^0.5.19",
     "react-messenger-customer-chat": "^0.7.2",

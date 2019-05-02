@@ -2,6 +2,7 @@ import React from 'react'
 import withGA from "next-ga";
 import Router from "next/router";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import ReactPixel from 'react-facebook-pixel';
 // import {Carousel} from 'react-responsive-carousel';
 import Link from 'next/link'
 // import Slider from "react-slick";
@@ -384,7 +385,7 @@ const image = (order) => <>
 const button = <>
   <div className="button ">
     <a href="https://docs.google.com/forms/d/1PBQk_s0ZioDYSda8F9FE8I5D_Ov_3YaOdrxj59bMq8A/edit"
-       className="" target="_blank">
+       className="" target="_blank" onClick={()=>{ReactPixel.track( 'Purchase',  {currency: "VND", value: 30.00} ); console.log('ReactPixel' + ReactPixel.toString())}}>
       <span className="label">Mua ngay</span>
     </a>
     { /*language=SCSS*/}
@@ -581,7 +582,13 @@ const footer = <div className="footer-wrapper ">
   `}</style>
 </div>
 
-const Home = () => (
+const Home = () => {
+  if(process.browser){
+    // console.log('here');
+    ReactPixel.init('159929648043274');
+    ReactPixel.pageView(); 					// For tracking page view
+  }
+  return (
   <div>
     {head}
     {navBar}
@@ -590,7 +597,7 @@ const Home = () => (
 
     { /*language=SCSS*/}
     <style jsx>{indexStyles}</style>
-  </div>
-)
+  </div>);
+}
 
 export default withGA("UA-131737658-1", Router)(Home);
